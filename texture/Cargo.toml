@@ -20,7 +20,7 @@ rendy-resource = { version = "0.1.0", path = "../resource" }
 rendy-factory = { version = "0.1.0", path = "../factory" }
 rendy-util = { version = "0.1.0", path = "../util" }
 
-gfx-hal = "0.1"
+gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
 
 derivative = "1.0"
 failure = "0.1"

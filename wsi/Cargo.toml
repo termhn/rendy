@@ -21,11 +21,11 @@ no-slow-safety-checks = []
 rendy-memory = { version = "0.1.0", path = "../memory" }
 rendy-resource = { version = "0.1.0", path = "../resource" }
 
-gfx-hal = "0.1"
-gfx-backend-empty = { version = "0.1.0", optional = true }
-gfx-backend-dx12 = { version = "0.1.0", optional = true }
-gfx-backend-metal = { version = "0.1.0", optional = true }
-gfx-backend-vulkan = { version = "0.1.0", optional = true }
+gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
+gfx-backend-empty = { version = "0.1.0", path = "../../gfx/src/backend/empty", optional = true }
+gfx-backend-dx12 = { version = "0.1.0", path = "../../gfx/src/backend/dx12", optional = true }
+gfx-backend-metal = { version = "0.1.0", path = "../../gfx/src/backend/metal", optional = true }
+gfx-backend-vulkan = { version = "0.1.0", path = "../../gfx/src/backend/vulkan", optional = true }
 
 derivative = "1.0"
 failure = "0.1"

@@ -12,7 +12,7 @@ description = "Rendy's shader compilation tool"
 
 [dependencies]
 failure = "0.1"
-gfx-hal = "0.1"
+gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
 rendy-factory = { version = "0.1", path = "../factory" }
 shaderc = { version = "0.3", optional = true }
 

@@ -11,6 +11,6 @@ categories = ["rendering"]
 description = "Rendy's node synchronization tool"
 
 [dependencies]
-gfx-hal = "0.1"
+gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
 fnv = "1.0"
 log = "0.4"

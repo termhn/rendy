@@ -53,11 +53,11 @@ rendy-texture = { version = "0.1.0", path = "../texture", optional = true }
 rendy-util = { version = "0.1.0", path = "../util", optional = true }
 rendy-wsi = { version = "0.1.0", path = "../wsi", optional = true }
 
-gfx-hal = "0.1"
-gfx-backend-empty = { version = "0.1.0", optional = true }
-gfx-backend-dx12 = { version = "0.1.0", optional = true }
-gfx-backend-metal = { version = "0.1.0", optional = true }
-gfx-backend-vulkan = { version = "0.1.0", optional = true }
+gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
+gfx-backend-empty = { version = "0.1.0", path = "../../gfx/src/backend/empty", optional = true }
+gfx-backend-dx12 = { version = "0.1.0", path = "../../gfx/src/backend/dx12", optional = true }
+gfx-backend-metal = { version = "0.1.0", path = "../../gfx/src/backend/metal", optional = true }
+gfx-backend-vulkan = { version = "0.1.0", path = "../../gfx/src/backend/vulkan", optional = true }
 
 [dev-dependencies]
 genmesh = "0.6"
