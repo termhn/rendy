@@ -12,6 +12,7 @@ description = "Rendy's memory manager"
 
 [features]
 serde-1 = ["serde"]
+relevant-backtrace = ["relevant/backtrace"]
 
 [dependencies]
 gfx-hal = { version = "0.1", path = "../../gfx/src/hal" }
@@ -19,7 +20,7 @@ derivative = "1.0"
 failure = "0.1"
 log = "0.4"
 hibitset = "0.5"
-relevant = { version = "0.4", features = ["log", "backtrace"] }
+relevant = { version = "0.4", features = ["log"] }
 serde = { version = "1.0", optional = true, features = ["derive"] }
 smallvec = "0.6"
 veclist = "0.1"
