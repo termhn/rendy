@@ -56,6 +56,7 @@ where
 pub struct TextureBuilder<'a> {
     kind: image::Kind,
     view_kind: image::ViewKind,
+    mip_levels: u8,
     format: Format,
     #[derivative(Debug = "ignore")]
     data: std::borrow::Cow<'a, [u8]>,
@@ -71,6 +72,7 @@ impl<'a> TextureBuilder<'a> {
         TextureBuilder {
             kind: image::Kind::D1(0, 0),
             view_kind: image::ViewKind::D1,
+            mip_levels: 1,
             format: Format::Rgba8Unorm,
             data: std::borrow::Cow::Borrowed(&[]),
             data_width: 0,
@@ -81,6 +83,18 @@ impl<'a> TextureBuilder<'a> {
             ),
             swizzle: Swizzle::NO,
         }
+    }
+
+    // Set mip levels (not auto generated)
+    pub fn with_mip_levels(mut self, levels: u8) -> Self {
+        self.set_mip_levels(levels);
+        self
+    }
+
+    // Set mip levels (not auto generated)
+    pub fn set_mip_levels(&mut self, levels: u8) -> &mut Self {
+        self.mip_levels = levels;
+        self
     }
 
     /// Set pixel data.
@@ -218,7 +232,7 @@ impl<'a> TextureBuilder<'a> {
             factory,
             ImageInfo {
                 kind: self.kind,
-                levels: 1,
+                levels: self.mip_levels,
                 format: self.format,
                 tiling: gfx_hal::image::Tiling::Optimal,
                 view_caps,
@@ -280,7 +294,7 @@ impl<'a> TextureBuilder<'a> {
                 swizzle: double_swizzle(self.swizzle, transform_swizzle),
                 range: image::SubresourceRange {
                     aspects: self.format.surface_desc().aspects,
-                    levels: 0..1,
+                    levels: 0..self.mip_levels,
                     layers: 0..self.kind.num_layers(),
                 },
             },

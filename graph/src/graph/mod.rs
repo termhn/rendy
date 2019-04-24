@@ -226,7 +226,7 @@ where
     pub fn dispose(self, factory: &mut Factory<B>, data: &T) {
         self.assert_device_owner(factory.device());
 
-        assert!(factory.wait_idle().is_ok());
+        factory.wait_idle().unwrap();
         self.frames.dispose(factory);
 
         unsafe {
